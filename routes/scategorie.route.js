@@ -6,7 +6,7 @@ router.get('/', async (req, res, )=> {
     try {
     const scat = await Scategorie.find();
     
-    res.status(200).json(cat);
+    res.status(200).json(scat);
     } catch (error) {
     res.status(404).json({ message: error.message });
     }

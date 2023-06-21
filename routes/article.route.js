@@ -6,7 +6,7 @@ router.get('/', async (req, res, )=> {
     try {
     const art = await Article.find();
     
-    res.status(200).json(cat);
+    res.status(200).json(art);
     } catch (error) {
     res.status(404).json({ message: error.message });
     }
@@ -16,7 +16,7 @@ router.get('/', async (req, res, )=> {
 // créer un nouvelle article
 router.post('/', async (req, res) => {
     const { reference, designation,prix,marque,qtestock,imageart,scategorieID} = req.body;
-    const newCategorie = new Categorie({reference:reference,designation:designation,
+    const newArticle = new Article({reference:reference,designation:designation,
         prix:prix,marque:marque,qtestock:qtestock,imageart:imageart,scategorieID:scategorieID})
     
     try {
@@ -33,7 +33,7 @@ router.post('/', async (req, res) => {
 router.get('/:reference',async(req, res)=>{
     try {
     const art = await Article.findById(req.params.categorieId);
-    res.status(200).json(cat);
+    res.status(200).json(art);
     } catch (error) {
     res.status(404).json({ message: error.message });
     }
